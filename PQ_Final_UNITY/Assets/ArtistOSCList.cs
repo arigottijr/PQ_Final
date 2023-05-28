@@ -5,6 +5,7 @@ using UnityEditor;
 using System;
 using System.IO;
 using TMPro;
+using System.Linq;
 
 public class ArtistOSCList : MonoBehaviour
 {
@@ -99,6 +100,8 @@ public class ArtistOSCList : MonoBehaviour
     public void ClickUpdatePlaylist()
     {
         playlisttext.Insert(0, myOSCList.artistosc[currentViewedArtist].artistName);
+
+        playlisttext = playlisttext.Distinct().ToList();
   
         playlistosc.Insert(0, int.Parse(myOSCList.artistosc[currentViewedArtist].oscNumber));
         nextOSCFired = playlistosc[0];
@@ -108,16 +111,16 @@ public class ArtistOSCList : MonoBehaviour
             playlisttmp[i].text = playlisttext[i];
         }
        
-        playlisttext.RemoveAt(playlisttext.Count - 1);
-        playlistosc.RemoveAt(playlistosc.Count - 1);
-        
+        if (playlisttext.Count > 28)
+        {
+            playlisttext.RemoveAt(playlisttext.Count - 1);
+        }
 
-
-
-        
-
-
-
+        if (playlistosc.Count > 10)
+        {
+            playlistosc.RemoveAt(playlistosc.Count - 1);
+        }
+       
 
 
     }
