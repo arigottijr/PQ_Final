@@ -5,7 +5,6 @@ using UnityEditor;
 using System;
 using System.IO;
 using TMPro;
-using System.Linq;
 
 public class ArtistOSCList : MonoBehaviour
 {
@@ -110,6 +109,7 @@ public class ArtistOSCList : MonoBehaviour
         }
        
         playlisttext.RemoveAt(playlisttext.Count - 1);
+        playlistosc.RemoveAt(playlistosc.Count - 1);
         
 
 
