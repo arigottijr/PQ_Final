@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{E40699C5-26CB-9A11-A0F4-6976C8CC14CC}|">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Assets/AnimateIn.cs" Line="21" Column="33" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PQ_Final" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="AnimateOut.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dba26cd5-9234-4f4d-b22f-6c17e216303b" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

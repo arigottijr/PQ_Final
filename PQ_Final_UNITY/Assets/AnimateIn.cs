@@ -20,6 +20,7 @@ public class AnimateIn : MonoBehaviour
     public TextMeshProUGUI displayCreds;
 
     public GameObject closeMenu;
+    public GameObject playthisNext;
 
     public Sprite[] artistImages;
 
@@ -31,6 +32,7 @@ public class AnimateIn : MonoBehaviour
         public string homeArtist;
         public string artistDesc;
         public string artistCredits;
+        public string artistOSC;
     }
 
     [System.Serializable]
@@ -73,6 +75,8 @@ public class AnimateIn : MonoBehaviour
             {
                 ComingIn = false;
                 closeMenu.SetActive(true);
+                playthisNext.SetActive(true);
+
 
             }
         }
@@ -96,17 +100,18 @@ public class AnimateIn : MonoBehaviour
     void ReadCSV()
     {
         string[] data = textAssetData.text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
-        int tableSize = data.Length / 5;
+        int tableSize = data.Length / 6;
         myArtistList.artist = new Artist[tableSize];
 
         for (int i = 0; i < tableSize; i++)
         {
             myArtistList.artist[i] = new Artist();
-            myArtistList.artist[i].projectName = data[5 * i];
-            myArtistList.artist[i].categoryName = data[5 * i + 1];
-            myArtistList.artist[i].homeArtist = data[5 * i + 2];
-            myArtistList.artist[i].artistDesc = data[5 * i + 3];
-            myArtistList.artist[i].artistCredits = data[5 * i + 4];
+            myArtistList.artist[i].projectName = data[6 * i];
+            myArtistList.artist[i].categoryName = data[6 * i + 1];
+            myArtistList.artist[i].homeArtist = data[6 * i + 2];
+            myArtistList.artist[i].artistDesc = data[6 * i + 3];
+            myArtistList.artist[i].artistCredits = data[6 * i + 4];
+            myArtistList.artist[i].artistOSC = data[6 * i + 5];
 
 
 

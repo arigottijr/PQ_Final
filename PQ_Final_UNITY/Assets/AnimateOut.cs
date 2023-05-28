@@ -10,6 +10,7 @@ public class AnimateOut : MonoBehaviour
     public bool GoingOut = false;
 
     public GameObject closeMenu;
+    public GameObject playthisNext;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class AnimateOut : MonoBehaviour
     {
         GoingOut = true;
         closeMenu.SetActive(false);
+        playthisNext.SetActive(false);
         
     }
 }
