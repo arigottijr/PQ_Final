@@ -22,6 +22,8 @@ public class AnimateIn : MonoBehaviour
     public GameObject closeMenu;
     public GameObject playthisNext;
 
+    public ArtistOSCList oscScript;
+
     public Sprite[] artistImages;
 
     [System.Serializable]
@@ -92,6 +94,7 @@ public class AnimateIn : MonoBehaviour
         displayDesc.text = myArtistList.artist[artistNumber].artistDesc;
         displayCreds.text = myArtistList.artist[artistNumber].artistCredits;
 
+        oscScript.currentViewedArtist = artistNumber;
 
         ComingIn = true;
         

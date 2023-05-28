@@ -5,24 +5,21 @@ using UnityEditor;
 using System;
 using System.IO;
 using TMPro;
+using System.Linq;
 
 public class ArtistOSCList : MonoBehaviour
 {
     public TextMeshPro NowPlaying;
-    public TextMeshPro NextArtist1;
-    public TextMeshPro NextArtist2;
-    public TextMeshPro NextArtist3;
-    public TextMeshPro NextArtist4;
-    public TextMeshPro NextArtist5;
-    public TextMeshPro NextArtist6;
-    public TextMeshPro NextArtist7;
-    public TextMeshPro NextArtist8;
-    public TextMeshPro NextArtist9;
-    public TextMeshPro NextArtist10;
 
     public TextAsset textAssetData;
 
-    public int[] oscPlaylist = new int[11];
+    public int currentViewedArtist;
+
+    public int nextOSCFired;
+
+    public List<string> playlisttext = new List<string>();
+    public List<TextMeshPro> playlisttmp = new List<TextMeshPro>();
+    public List<int> playlistosc = new List<int>();
 
     [System.Serializable]
     public class ArtistOSC
@@ -47,10 +44,17 @@ public class ArtistOSCList : MonoBehaviour
         ReadOSCCSV();
         PlaylistInitialize();
 
+
+
     }
 
     private void Update()
     {
+        //comments for stuff to do
+
+        //an if statement checking to see if Qlab has sent an OSC
+        //once OSC arrives, fire the OSC request function below
+        
         
     }
 
@@ -72,34 +76,60 @@ public class ArtistOSCList : MonoBehaviour
     void PlaylistInitialize()
     {
         NowPlaying.text = myOSCList.artistosc[0].artistName;
-        NextArtist1.text = myOSCList.artistosc[1].artistName;
-        NextArtist2.text = myOSCList.artistosc[2].artistName;
-        NextArtist3.text = myOSCList.artistosc[3].artistName;
-        NextArtist4.text = myOSCList.artistosc[4].artistName;
-        NextArtist5.text = myOSCList.artistosc[5].artistName;
-        NextArtist6.text = myOSCList.artistosc[6].artistName;
-        NextArtist7.text = myOSCList.artistosc[7].artistName;
-        NextArtist8.text = myOSCList.artistosc[8].artistName;
-        NextArtist9.text = myOSCList.artistosc[9].artistName;
-        NextArtist10.text = myOSCList.artistosc[10].artistName;
+        nextOSCFired = int.Parse(myOSCList.artistosc[0].oscNumber);
 
-        for (int  i = 0; i < oscPlaylist.Length; i++)
+        for (int i = 0; i < playlistosc.Count; i++)
         {
-            oscPlaylist[i] = int.Parse(myOSCList.artistosc[i].oscNumber);
+            playlistosc[i] = int.Parse(myOSCList.artistosc[i].oscNumber);
         }
+
+        for (int i = 0; i < playlisttext.Count; i++)
+        {
+            playlisttext[i] = myOSCList.artistosc[i].artistName;
+        }
+
+        for (int i = 0; i < playlisttmp.Count; i++)
+        {
+            playlisttmp[i].text = playlisttext[i];
+        }
+
 
 
     }
 
-    public void ClickUpdatePlaylist(int artist)
+    public void ClickUpdatePlaylist()
     {
-        NowPlaying.text = myOSCList.artistosc[artist].artistName;
-        oscPlaylist[0] = int.Parse(myOSCList.artistosc[artist].oscNumber);
+        playlisttext.Insert(0, myOSCList.artistosc[currentViewedArtist].artistName);
+  
+        playlistosc.Insert(0, int.Parse(myOSCList.artistosc[currentViewedArtist].oscNumber));
+        nextOSCFired = playlistosc[0];
+
+        for  (int i = 0; i < playlisttmp.Count; i++)
+        {
+            playlisttmp[i].text = playlisttext[i];
+        }
+       
+        playlisttext.RemoveAt(playlisttext.Count - 1);
+        
+
+
+
+        
+
+
+
+
 
     }
 
     void OSCRequest()
     {
+        //comments for steps
+        //when OSC request is activate above
+        //create an OSC string built from the nextOSCFired variable
+        //also updates the nowPlaying.text with the nextOSCfired
+        //and updates all lists one up.
+ 
         
     }
 
