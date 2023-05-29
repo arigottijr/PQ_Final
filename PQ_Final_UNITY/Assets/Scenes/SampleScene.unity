@@ -4124,7 +4124,7 @@ MonoBehaviour:
   ComingIn: 0
   textAssetData: {fileID: 4900000, guid: 4fcd931e93ac44b0b9f486a6cf478f33, type: 3}
   displayName: {fileID: 304613509}
-  displayCategory: {fileID: 1866335158}
+  displayCategoryandName: {fileID: 1866335158}
   displayHome: {fileID: 2038515410}
   displayDesc: {fileID: 1291138153}
   displayCreds: {fileID: 1476210934}
@@ -12216,8 +12216,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 72.3, y: 4}
-  m_SizeDelta: {x: 564, y: 50}
+  m_AnchoredPosition: {x: 133.34, y: -24}
+  m_SizeDelta: {x: 686.09, y: 82.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1866335158
 MonoBehaviour:
@@ -12239,7 +12239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: USITT CATEGORY BY ARTIST NAME
+  m_text: CATEGORY BY ARTISTNAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 63debe6e78e5e4c3fa9ab6825fccf558, type: 2}
   m_sharedMaterial: {fileID: 7083230518281801000, guid: 63debe6e78e5e4c3fa9ab6825fccf558, type: 2}
@@ -12266,15 +12266,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 16
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -12282,7 +12282,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -12294,8 +12294,8 @@ MonoBehaviour:
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
+  m_horizontalMapping: 1
+  m_verticalMapping: 1
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
   m_IsTextObjectScaleStatic: 0

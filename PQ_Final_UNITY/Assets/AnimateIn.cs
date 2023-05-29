@@ -90,7 +90,7 @@ public class AnimateIn : MonoBehaviour
     public void ComeIn(int artistNumber)
     {
         displayName.text = myArtistList.artist[artistNumber].projectName;
-        displayCategoryandName.text = myArtistList.artist[artistNumber].artistCat+" by "+myArtistList.artist[artistNumber].artistName;
+        displayCategoryandName.text = myArtistList.artist[artistNumber].artistCat+"                         by "+myArtistList.artist[artistNumber].artistName;
         Debug.Log(displayCategoryandName.text);
         displayHome.text = myArtistList.artist[artistNumber].homeArtist;
         displayDesc.text = myArtistList.artist[artistNumber].artistDesc;
