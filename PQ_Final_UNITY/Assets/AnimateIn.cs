@@ -90,7 +90,7 @@ public class AnimateIn : MonoBehaviour
     public void ComeIn(int artistNumber)
     {
         displayName.text = myArtistList.artist[artistNumber].projectName;
-        displayCategoryandName.text = myArtistList.artist[artistNumber].artistCat+"                         by "+myArtistList.artist[artistNumber].artistName;
+        displayCategoryandName.text = myArtistList.artist[artistNumber].artistCat+"  by "+myArtistList.artist[artistNumber].artistName;
         Debug.Log(displayCategoryandName.text);
         displayHome.text = myArtistList.artist[artistNumber].homeArtist;
         displayDesc.text = myArtistList.artist[artistNumber].artistDesc;
@@ -118,6 +118,8 @@ public class AnimateIn : MonoBehaviour
             myArtistList.artist[i].artistCredits = data[7 * i + 4];
             myArtistList.artist[i].artistOSC = data[7 * i + 5];
             myArtistList.artist[i].artistCat = data[7 * i + 6];
+            //getting rid of extra weird character at end of data row
+            myArtistList.artist[i].artistCat = myArtistList.artist[i].artistCat.Substring(0, (myArtistList.artist[i].artistCat).Length - 1);
 
 
 
