@@ -6,6 +6,8 @@ using System;
 using System.IO;
 using TMPro;
 
+namespace extOSC.Examples{
+
 public class AnimateIn : MonoBehaviour
 {
     public float speed;
@@ -128,3 +130,6 @@ public class AnimateIn : MonoBehaviour
     }
 
 }
+
+}
+

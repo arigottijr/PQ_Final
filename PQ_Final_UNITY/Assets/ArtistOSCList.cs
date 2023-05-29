@@ -7,14 +7,21 @@ using System.IO;
 using TMPro;
 using System.Linq;
 
+namespace extOSC.Examples{
+
 public class ArtistOSCList : MonoBehaviour
 {
+
+    [Header("OSC Settings")]
+	private OSCTransmitter Transmitter;
+    private OSCReceiver Receiver;
+	private GameObject OSCManager;
+    private string iPadAddress;
+    public string Address = "/workspace/show/cue/";
+
     public TextMeshPro NowPlaying;
-
     public TextAsset textAssetData;
-
     public int currentViewedArtist;
-
     public int nextOSCFired;
 
     public string tempString;
@@ -39,14 +46,23 @@ public class ArtistOSCList : MonoBehaviour
 
     public TotalArtistOSCList myOSCList = new TotalArtistOSCList();
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update       
     void Start()
     {
+        OSCManager = GameObject.Find("OSC Manager");
+        iPadAddress = GameObject.Find("iPadAddress").GetComponent<TextMeshProUGUI>().text;
+        Debug.Log(iPadAddress);
+		Transmitter = OSCManager.GetComponent<OSCTransmitter>();
+        Receiver = OSCManager.GetComponent<OSCReceiver>();	
+        var receiverAddress = "/iPad/" + iPadAddress;
+        Receiver.Bind(receiverAddress, MessageReceived);
+        Debug.Log(receiverAddress);
+
         AssetDatabase.Refresh();
 
         ReadOSCCSV();
         PlaylistInitialize();
-
+        
 
 
     }
@@ -58,13 +74,27 @@ public class ArtistOSCList : MonoBehaviour
         {
             OSCRequest();
         }
-        //comments for stuff to do
-
+     
         //an if statement checking to see if Qlab has sent an OSC
         //once OSC arrives, fire the OSC request function below
-        
-        
+
     }
+
+    private void Send(string address, OSCValue value)
+		{
+			var message = new OSCMessage(address, value);
+			Transmitter.Send(message);
+		}
+
+    public void SendSelection(string Selection)
+		{
+			var cueAddress = Address +Selection +"/start";
+			Debug.Log(cueAddress);
+            // it doesn't really matter what the osc message is, qlab only looks at the address info
+			// and takes any message as a "GO"
+			Send(cueAddress, OSCValue.String(Selection));
+		}
+
 
     void ReadOSCCSV()
     {
@@ -81,9 +111,11 @@ public class ArtistOSCList : MonoBehaviour
         }
     }
 
+
     void PlaylistInitialize()
     {
         NowPlaying.text = myOSCList.artistosc[0].artistName;
+        SendSelection("0"); // send the first artist in the list, who will be displayed as "now playing"
         nextOSCFired = int.Parse(myOSCList.artistosc[0].oscNumber);
 
         for (int i = 0; i < playlistosc.Count; i++)
@@ -100,9 +132,6 @@ public class ArtistOSCList : MonoBehaviour
         {
             playlisttmp[i].text = playlisttext[i];
         }
-
-
-
     }
 
     public void ClickUpdatePlaylist()
@@ -166,4 +195,16 @@ public class ArtistOSCList : MonoBehaviour
         
     }
 
+//this acts as an event listener function and triggers whenver a message is received on the
+// correct port and address.
+    protected void MessageReceived(OSCMessage message)
+		{
+			Debug.Log(message);
+            Debug.Log("received");
+
+            //here is the section to send the correct next selection and update the playlist
+            SendSelection("0");
+		}
+
+}
 }
