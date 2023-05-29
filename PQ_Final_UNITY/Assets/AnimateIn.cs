@@ -14,7 +14,7 @@ public class AnimateIn : MonoBehaviour
 
     public TextAsset textAssetData;
     public TextMeshProUGUI displayName;
-    public TextMeshProUGUI displayCategory;
+    public TextMeshProUGUI displayCategoryandName;
     public TextMeshProUGUI displayHome;
     public TextMeshProUGUI displayDesc;
     public TextMeshProUGUI displayCreds;
@@ -30,11 +30,12 @@ public class AnimateIn : MonoBehaviour
     public class Artist
     {
         public string projectName;
-        public string categoryName;
+        public string artistName;
         public string homeArtist;
         public string artistDesc;
         public string artistCredits;
         public string artistOSC;
+        public string artistCat;
     }
 
     [System.Serializable]
@@ -89,7 +90,8 @@ public class AnimateIn : MonoBehaviour
     public void ComeIn(int artistNumber)
     {
         displayName.text = myArtistList.artist[artistNumber].projectName;
-        displayCategory.text = myArtistList.artist[artistNumber].categoryName;
+        displayCategoryandName.text = myArtistList.artist[artistNumber].artistCat+" by "+myArtistList.artist[artistNumber].artistName;
+        Debug.Log(displayCategoryandName.text);
         displayHome.text = myArtistList.artist[artistNumber].homeArtist;
         displayDesc.text = myArtistList.artist[artistNumber].artistDesc;
         displayCreds.text = myArtistList.artist[artistNumber].artistCredits;
@@ -103,18 +105,19 @@ public class AnimateIn : MonoBehaviour
     void ReadCSV()
     {
         string[] data = textAssetData.text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
-        int tableSize = data.Length / 6;
+        int tableSize = data.Length / 7;
         myArtistList.artist = new Artist[tableSize];
 
         for (int i = 0; i < tableSize; i++)
         {
             myArtistList.artist[i] = new Artist();
-            myArtistList.artist[i].projectName = data[6 * i];
-            myArtistList.artist[i].categoryName = data[6 * i + 1];
-            myArtistList.artist[i].homeArtist = data[6 * i + 2];
-            myArtistList.artist[i].artistDesc = data[6 * i + 3];
-            myArtistList.artist[i].artistCredits = data[6 * i + 4];
-            myArtistList.artist[i].artistOSC = data[6 * i + 5];
+            myArtistList.artist[i].projectName = data[7 * i];
+            myArtistList.artist[i].artistName = data[7 * i + 1];
+            myArtistList.artist[i].homeArtist = data[7 * i + 2];
+            myArtistList.artist[i].artistDesc = data[7 * i + 3];
+            myArtistList.artist[i].artistCredits = data[7 * i + 4];
+            myArtistList.artist[i].artistOSC = data[7 * i + 5];
+            myArtistList.artist[i].artistCat = data[7 * i + 6];
 
 
 

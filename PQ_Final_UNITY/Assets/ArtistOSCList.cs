@@ -17,6 +17,9 @@ public class ArtistOSCList : MonoBehaviour
 
     public int nextOSCFired;
 
+    public string tempString;
+    public int tempOSC;
+
     public List<string> playlisttext = new List<string>();
     public List<TextMeshPro> playlisttmp = new List<TextMeshPro>();
     public List<int> playlistosc = new List<int>();
@@ -50,6 +53,11 @@ public class ArtistOSCList : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OSCRequest();
+        }
         //comments for stuff to do
 
         //an if statement checking to see if Qlab has sent an OSC
@@ -61,14 +69,14 @@ public class ArtistOSCList : MonoBehaviour
     void ReadOSCCSV()
     {
         string[] data = textAssetData.text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
-        int tableSize = data.Length / 6;
+        int tableSize = data.Length / 7;
         myOSCList.artistosc = new ArtistOSC[tableSize];
 
         for (int i = 0; i < tableSize; i++)
         {
             myOSCList.artistosc[i] = new ArtistOSC();
-            myOSCList.artistosc[i].artistName = data[6 * i];
-            myOSCList.artistosc[i].oscNumber = data[6 * i + 5];
+            myOSCList.artistosc[i].artistName = data[7 * i + 1];
+            myOSCList.artistosc[i].oscNumber = data[7 * i + 5];
 
         }
     }
@@ -100,11 +108,12 @@ public class ArtistOSCList : MonoBehaviour
     public void ClickUpdatePlaylist()
     {
         playlisttext.Insert(0, myOSCList.artistosc[currentViewedArtist].artistName);
-
         playlisttext = playlisttext.Distinct().ToList();
   
         playlistosc.Insert(0, int.Parse(myOSCList.artistosc[currentViewedArtist].oscNumber));
-        nextOSCFired = playlistosc[0];
+        playlistosc = playlistosc.Distinct().ToList();
+
+       // nextOSCFired = playlistosc[0];
 
         for  (int i = 0; i < playlisttmp.Count; i++)
         {
@@ -127,6 +136,27 @@ public class ArtistOSCList : MonoBehaviour
 
     void OSCRequest()
     {
+       
+        nextOSCFired = playlistosc[0];
+        //create OSC from nextOSC fired
+        //fire OSC
+        tempOSC = playlistosc[0];
+        playlistosc.RemoveAt(0);
+        playlistosc.Add(tempOSC);
+
+
+        NowPlaying.text = playlisttext[0];
+        tempString = playlisttext[0];
+        playlisttext.RemoveAt(0);
+        playlisttext.Add(tempString);
+
+        for (int i = 0; i < playlisttmp.Count; i++)
+        {
+            playlisttmp[i].text = playlisttext[i];
+        }
+
+        
+
         //comments for steps
         //when OSC request is activate above
         //create an OSC string built from the nextOSCFired variable
