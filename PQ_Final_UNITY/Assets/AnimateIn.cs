@@ -145,11 +145,11 @@ public class AnimateIn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AssetDatabase.Refresh();
+        //AssetDatabase.Refresh();
 
         //Debug.Log(textAssetData.text);
 
-        myArtistList = new Artist[29];
+        myArtistList = new Artist[28];
         fgCSVReader.LoadFromString(textAssetData.text, new fgCSVReader.ReadLineDelegate(ReadLine));
         
         //ReadCSV();

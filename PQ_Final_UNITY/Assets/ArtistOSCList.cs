@@ -59,7 +59,7 @@ public class ArtistOSCList : MonoBehaviour
         Receiver.Bind(receiverAddress, MessageReceived);
        //Debug.Log(receiverAddress);
 
-        AssetDatabase.Refresh();
+        //AssetDatabase.Refresh();
 
         ReadOSCCSV();
         PlaylistInitialize();
@@ -93,7 +93,7 @@ public class ArtistOSCList : MonoBehaviour
     //up this way for whatever reason
     public void SendSelection(string Selection)
 		{
-			var cueAddress = Address +Selection +"/start";
+			var cueAddress = Address + iPadAddress + Selection +"/start";
 			//Debug.Log(cueAddress);
             
             //it doesn't really matter what the OSC message actually is, Qlab only looks at the
