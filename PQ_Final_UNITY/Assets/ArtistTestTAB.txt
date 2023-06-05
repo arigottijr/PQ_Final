@@ -1,0 +1,28 @@
+For the Lost Children of Paris	Carrie Robbins	Home1	"Description, Description"	credits	1	Costume Design
+Othello	Elizabeth Wislar	Home2	Description Descripton	credits	2	Costume Design
+8 Dissolutions	Erik Bergrin	Home3	Description Descripton	credits	3	Costume Design
+Acquittal	Hyun Sook Kim	Home4	Description Descripton	credits	4	Costume Design
+Mad Dash Le Cirque	Jazz	Home5	Description Descripton	credits	5	Costume Design
+Superterranean	Olivera Gaijic	Home6	Description Descripton	credits	6	Costume Design
+Ocean Filibuster	Olivera Gaijic	Home7	Description Descripton	credits	7	Costume Design
+King Lear	Susan Tsu	Home8	Description Descripton	credits	8	Costume Design
+Marie and Rosetta	Anne McMills	Home9	Description Descripton	credits	9	Light Design
+Revival	Daisy Long	Home10	Description Descripton	credits	10	Light Design
+Lizzie	Marada DeBusk	Home11	Description Descripton	credits	11	Light Design
+The Royale	Minjoo Kim	Home12	Description Descripton	credits	12	Light Design
+Frankenstein	William Kirkham	Home13	Description Descripton	credits	13	Light Design
+La Boheme	Charles Murdock Lucas	Home14	Description Descripton	credits	14	Scene Design
+Seven Deadly Sins	Christopher and Justin Swader	Home15	Description Descripton	credits	15	Scene Design
+A Dozen Dreams	Irina Kruzhilina	Home16	Description Descripton	credits	16	Media Design
+Angels in America	Michael Ruiz del Vizo	Home17	Description Descripton	credits	17	Scene Design
+Halfway Bitches Go Straight to Heaven	Narelle Sissons	Home18	Description Descripton	credits	18	Scene Design
+Port of Entry	Scott Neale	Home19	Description Descripton	credits	19	Scene Design
+At Last I Came to the Seas	Szu-Feng Chen	Home20	Description Descripton	credits	20	Scene Design
+Photograph 51	Arnel Sancianco	Home21	Description Descripton	credits	21	Scene Design
+The Hammer and the Feather	Christian Frederickson	Home22	Description Descripton	credits	22	Sound Design
+Saints	Christian Amigo	Home23	Description Descripton	credits	23	Sound Design
+Resounding World	Megumi Katayama	Home24	Description Descripton	credits	24	Sound Design
+Theater in Quarantine	Joshua Gelb	Home25	Description Descripton	credits	25	Media Design
+The Greatest Liberty	Charles Murdock Lucas	Home26	Description Descripton	credits	26	Media Design
+Sweet Land	Hana Kim	Home27	Description Descripton	credits	27	Media Design
+After Unica	Jeromy Hopgood	Home28	Description Descripton	credits	28	Media Design

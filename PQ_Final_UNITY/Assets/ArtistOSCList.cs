@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using TMPro;
 using System.Linq;
+using System.Text;
 
 namespace extOSC.Examples{
 
@@ -221,6 +222,10 @@ public class ArtistOSCList : MonoBehaviour
             //SendSelection("0");
             TransmitOSC();
 		}
+
+
+
+
 
 }
 }
