@@ -19,6 +19,7 @@ public class ArtistOSCList : MonoBehaviour
 	private GameObject OSCManager;
     private string iPadAddress;
     public string Address = "/workspace/show/cue/";
+    private int lastSent;
 
     public TextMeshPro NowPlaying;
     public TextAsset textAssetData;
@@ -124,8 +125,9 @@ public class ArtistOSCList : MonoBehaviour
     void PlaylistInitialize()
     {
         //set up firstSelected artist in the list
-        NowPlaying.text = myOSCList.artistosc[0].artistName;
-        nextOSCFired = int.Parse(myOSCList.artistosc[0].oscNumber);
+        NowPlaying.text = myOSCList.artistosc[21].artistName;
+        nextOSCFired = int.Parse(myOSCList.artistosc[21].oscNumber);
+        lastSent=21;
         // send the first selected artist in the list, who will also be displayed as "now playing"
         SendSelection(nextOSCFired.ToString()); 
         
@@ -149,6 +151,7 @@ public class ArtistOSCList : MonoBehaviour
     
     public void ClickUpdatePlaylist()
     {
+        if(int.Parse(myOSCList.artistosc[currentViewedArtist].oscNumber)!= lastSent){
         playlisttext.Insert(0, myOSCList.artistosc[currentViewedArtist].artistName);
         playlisttext = playlisttext.Distinct().ToList();
   
@@ -171,7 +174,7 @@ public class ArtistOSCList : MonoBehaviour
         {
             playlistosc.RemoveAt(playlistosc.Count - 1);
         }
-       
+        }
 
 
     }
@@ -181,6 +184,8 @@ public class ArtistOSCList : MonoBehaviour
        
         nextOSCFired = playlistosc[0];
         SendSelection(nextOSCFired.ToString());
+        lastSent=nextOSCFired;
+        Debug.Log(lastSent);
         //create OSC from nextOSC fired
         //fire OSC
         tempOSC = playlistosc[0];
