@@ -168,12 +168,13 @@ public class ArtistOSCList : MonoBehaviour
         if (playlisttext.Count > 28)
         {
             playlisttext.RemoveAt(playlisttext.Count - 1);
-        }
-
-        if (playlistosc.Count > 10)
-        {
             playlistosc.RemoveAt(playlistosc.Count - 1);
         }
+
+        // if (playlistosc.Count > 10)
+        // {
+        //     playlistosc.RemoveAt(playlistosc.Count - 1);
+        // }
         }
 
 
